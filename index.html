@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON POST Form</title>
+</head>
+<body>
+  <h2>Send JSON via POST</h2>
+  
+  <form id="jsonForm">
+    <label>
+      Name:
+      <input type="text" name="name" required>
+    </label>
+    <br><br>
+    <label>
+      Email:
+      <input type="email" name="email" required>
+    </label>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <pre id="response"></pre>
+
+  <script>
+    document.getElementById("jsonForm").addEventListener("submit", async function(e) {
+      e.preventDefault(); // stop default form submission
+      
+      const formData = new FormData(this);
+      const jsonData = Object.fromEntries(formData.entries()); // convert to JSON object
+      
+      try {
+        const res = await fetch("/your-endpoint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(jsonData)
+        });
+      } catch (err) {
+        document.getElementById("response").textContent = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

